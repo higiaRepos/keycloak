@@ -1,0 +1,16 @@
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.3
+    container_name: keycloak
+    command:
+      - start-dev
+      - --import-realm
+    env_file:
+      - ./.env
+    volumes:
+      - ./higiarealm.json:/opt/keycloak/data/import/higiarealm.json:ro
+      - /home/45647504W/certs/credentials_root.crt:/certs/credentials_root.crt:ro
+      - ./keycloak-themes:/opt/keycloak/themes:rw
+    network_mode: "host"   # usa la red del host directamente
+

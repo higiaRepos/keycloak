@@ -1,0 +1,117 @@
+{
+  "id": "higiarealm",
+  "realm": "higiarealm",
+  "enabled": true,
+  "displayName": "Higia Realm",
+  "users": [
+    {
+      "username": "higiaAdmin",
+      "enabled": true,
+      "email": "higiaadmin@example.com",
+      "emailVerified": true,
+      "firstName": "Higia",
+      "lastName": "Admin",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "1234",
+          "temporary": false
+        }
+      ],
+      "clientRoles": {
+        "realm-management": [
+          "view-realm",
+          "manage-realm",
+          "manage-users",
+          "view-users",
+          "view-clients",
+          "manage-clients",
+          "view-events",
+          "manage-events",
+          "manage-identity-providers",
+          "view-identity-providers",
+          "impersonation"
+        ],
+        "account": [
+          "manage-account",
+          "view-profile"
+        ]
+      }
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "account",
+      "name": "${client_account}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"],
+      "attributes": {
+        "post.logout.redirect.uris": "*"
+      },
+      "fullScopeAllowed": true
+    },
+    {
+      "clientId": "account-console",
+      "name": "${client_account-console}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"],
+      "fullScopeAllowed": true
+    },
+    {
+      "clientId": "security-admin-console",
+      "name": "${client_security-admin-console}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"],
+      "fullScopeAllowed": true
+    },
+    {
+      "clientId": "admin-cli",
+      "name": "${client_admin-cli}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": ["*"],
+      "fullScopeAllowed": true
+    },
+    {
+      "clientId": "realm-management",
+      "name": "${client_realm-management}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "redirectUris": [],
+      "webOrigins": [],
+      "fullScopeAllowed": false
+    }
+  ],
+  "roles": {
+    "client": {
+      "realm-management": [
+        { "name": "view-realm" },
+        { "name": "manage-realm" },
+        { "name": "manage-users" },
+        { "name": "view-users" },
+        { "name": "view-clients" },
+        { "name": "manage-clients" },
+        { "name": "view-events" },
+        { "name": "manage-events" },
+        { "name": "manage-identity-providers" },
+        { "name": "view-identity-providers" },
+        { "name": "impersonation" }
+      ],
+      "account": [
+        { "name": "manage-account" },
+        { "name": "view-profile" }
+      ]
+    }
+  }
+}

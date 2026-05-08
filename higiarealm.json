@@ -1,0 +1,202 @@
+{
+  "id": "h2orealm",
+  "realm": "h2orealm",
+  "enabled": true,
+  "displayName": "H2ORealm",
+  "users": [
+    {
+      "username": "higiaAdmin",
+      "enabled": true,
+      "email": "higiaadmin@example.com",
+      "emailVerified": true,
+      "firstName": "Higia",
+      "lastName": "Admin",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "85tZt9JLrzDuOkqMep66jkb8",
+          "temporary": false
+        }
+      ],
+      "clientRoles": {
+        "realm-management": [
+          "view-realm",
+          "manage-realm",
+          "manage-users",
+          "view-users",
+          "view-clients",
+          "manage-clients",
+          "view-events",
+          "manage-events",
+          "manage-identity-providers",
+          "view-identity-providers",
+          "impersonation"
+        ],
+        "account": [
+          "manage-account",
+          "view-profile"
+        ]
+      },
+      "groups": ["admin"]
+    },
+    {
+      "username": "doctorTest",
+      "enabled": true,
+      "email": "doctortest@example.com",
+      "emailVerified": true,
+      "firstName": "Doctor",
+      "lastName": "Test",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "4N&M9GCbxaxTzx4oLgFzyC!?4xy4QC",
+          "temporary": false
+        }
+      ],
+      "clientRoles": {
+        "realm-management": [
+          "view-users",
+          "view-groups"
+        ],
+        "account": [
+          "manage-account",
+          "view-profile"
+        ]
+      },
+      "requiredActions": ["CONFIGURE_TOTP"],
+      "groups": ["clinical"]
+    },
+    {
+      "username": "patienttest",
+      "enabled": true,
+      "email": "patienttest@example.com",
+      "emailVerified": true,
+      "firstName": "Patient",
+      "lastName": "Test",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "!B9n9#QKi6paiH&Jm!scqKB3H93Ey!",
+          "temporary": false
+        }
+      ],
+      "clientRoles": {
+        "realm-management": [
+          "view-users",
+          "view-groups"
+        ],
+        "account": [
+          "manage-account",
+          "view-profile"
+        ]
+      },
+      "groups": ["patient"]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "account",
+      "name": "${client_account}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"],
+      "attributes": {
+        "post.logout.redirect.uris": "*"
+      },
+      "fullScopeAllowed": true,
+      "directAccessGrantsEnabled": true,
+      "protocolMappers": [
+        {
+          "name": "groups",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.property": "groups",
+            "claim.name": "groups",
+            "jsonType.label": "JSON",
+            "access.token.claim": "true",
+            "id.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "account-console",
+      "name": "${client_account-console}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"],
+      "fullScopeAllowed": true
+    },
+    {
+      "clientId": "security-admin-console",
+      "name": "${client_security-admin-console}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"],
+      "fullScopeAllowed": true
+    },
+    {
+      "clientId": "admin-cli",
+      "name": "${client_admin-cli}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": ["*"],
+      "fullScopeAllowed": true
+    },
+    {
+      "clientId": "realm-management",
+      "name": "${client_realm-management}",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": [],
+      "webOrigins": [],
+      "fullScopeAllowed": false
+    }
+  ],
+  "roles": {
+    "client": {
+      "realm-management": [
+        { "name": "view-realm" },
+        { "name": "manage-realm" },
+        { "name": "manage-users" },
+        { "name": "view-users" },
+        { "name": "view-clients" },
+        { "name": "manage-clients" },
+        { "name": "view-events" },
+        { "name": "manage-events" },
+        { "name": "manage-identity-providers" },
+        { "name": "view-identity-providers" },
+        { "name": "impersonation" }
+      ],
+      "account": [
+        { "name": "manage-account" },
+        { "name": "view-profile" }
+      ]
+    }
+  },
+  "groups": [
+    {
+      "name": "admin",
+      "path": "/admin"
+    },
+    {
+      "name": "clinical",
+      "path": "/clinical"
+    },
+    {
+      "name": "patient",
+      "path": "/patient"
+    }
+  ]
+}

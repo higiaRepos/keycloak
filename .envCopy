@@ -1,0 +1,45 @@
+# Admin
+KEYCLOAK_ADMIN=h2oAdmin
+KEYCLOAK_ADMIN_PASSWORD=SS2T7ypAI0cP1FLKWpWCe2ZB
+
+# Base de datos Postgres
+KC_DB=postgres
+KC_DB_URL=jdbc:postgresql://172.18.50.128:55484/credentialsdb?user=crepostus&password=pu6am8QvTQevqgbDGVR9G55M&sslmode=verify-ca&sslrootcert=/certs/credentials_root.crt
+
+# Base de datos Credentials
+KC_DB_USERNAME=crepostus
+KC_DB_PASSWORD=pu6am8QvTQevqgbDGVR9G55M
+
+# Host y proxy
+KC_PROXY=edge
+KC_HOSTNAME=health-outcomes-h2o-keycloak.vhir.org
+# KC_HOSTNAME_STRICT=false
+KC_HOSTNAME_STRICT=true
+
+
+KC_HTTP_ENABLED=true
+KC_HTTP_PORT=8443
+
+KC_HTTP_RELATIVE_PATH=/auth
+
+KC_LOG_LEVEL=INFO,org.keycloak.services:DEBUG,org.keycloak.events:DEBUG
+
+
+#################################3
+#KC_PROXY=edge
+ 
+# Hostname principal
+#KC_HOSTNAME=health-outcomes-h2o-keycloak.vhir.org
+#KC_HOSTNAME_STRICT=true
+#KC_HOSTNAME_STRICT_HTTPS=true
+ 
+# Forzar la URL de la consola para evitar el bucle de carga
+#KC_HOSTNAME_ADMIN_URL=https://health-outcomes-h2o-keycloak.vhir.org/auth/
+ 
+# Configuración del puerto interno
+#KC_HTTP_ENABLED=true
+#KC_HTTP_PORT=8443
+#KC_HTTP_RELATIVE_PATH=/auth
+ 
+# Logs (mantén los que tienes para ver errores de cabeceras)
+#KC_LOG_LEVEL=INFO,org.keycloak.services:DEBUG,org.keycloak.events:DEBUG
